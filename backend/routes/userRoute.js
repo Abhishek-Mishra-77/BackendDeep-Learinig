@@ -1,8 +1,12 @@
 import { Router } from "express";
 const router = Router();
 
-import { signUp } from "../Controllers/Auth.js";
+import { signUp, signIn, getUsers, removeUser,updateUser } from "../Controllers/Auth.js";
 
-router.post("/", signUp);
+router.get("/", getUsers);
+router.post("/signup", signUp);
+router.get("/signin", signIn);
+router.delete("/remove/:id", removeUser);
+router.put("/update/:id" , updateUser);
 
 export default router;
