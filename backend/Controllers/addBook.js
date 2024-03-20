@@ -1,8 +1,6 @@
-import { Router } from "express";
 import { Book } from "../models/BookModel.js";
-const router = Router();
 
-router.post("/", async (req, res) => {
+const addBook = async (req, res) => {
   try {
     const { name, author, year } = req.body;
     if (!name || !author || !year) {
@@ -23,6 +21,6 @@ router.post("/", async (req, res) => {
     console.log(error.message);
     return res.status(400).json({ error: error.message });
   }
-});
+};
 
-export default router;
+export default addBook;

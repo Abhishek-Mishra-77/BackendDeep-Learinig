@@ -1,8 +1,6 @@
-import { Router } from "express";
 import { Book } from "../models/BookModel.js";
-const router = Router();
 
-router.put("/update/:id", async (req, res) => {
+const updateBook = async (req, res) => {
   try {
     const { id } = req.params;
     const { name, author, year } = req.body;
@@ -21,6 +19,6 @@ router.put("/update/:id", async (req, res) => {
   } catch (error) {
     return res.status(400).send({ message: error.message });
   }
-});
+};
 
-export default router;
+export default updateBook;
